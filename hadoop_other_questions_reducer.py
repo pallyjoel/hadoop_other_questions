@@ -35,7 +35,7 @@ for row in sys.stdin:
 		word = data[2]
 	# Identify whether a question ID is associated with an answer
 	# build a dictionary of words with counts for each category
-		if findid(id, answer_id) == False:
+		if findid(ida, answer_id) == False:
 			try:
 				wo_ans[word] += 1
 			except KeyError:
@@ -44,7 +44,7 @@ for row in sys.stdin:
 			try:
 				w_ans[word] += 1
 			except KeyError:
-				wo_ans[word] =1
+				w_ans[word] =1
 			
 # categories are sorted by count of each word
 sorted_w = sorted(w_ans.items(), key=itemgetter(1))
@@ -53,12 +53,12 @@ sorted_wo = sorted(wo_ans.items(), key=itemgetter(1))
 
 
 print "top words from unanswered questions"
-for i in range(10):
-	print sorted_wo[i][0], sorted_wo[i][1]	
+for i in range(1,11):
+	print sorted_wo[-i][0], sorted_wo[-i][1]	
 
 print "top words from answered questions"
-for i in range(10):
-	print sorted_w[i][0], sorted_w[i][1]	
+for i in range(1,11):
+	print sorted_w[-i][0], sorted_w[-i][1]	
 		
 		
 		
